@@ -30,8 +30,42 @@ EPOCHS = int(os.environ.get("EPOCHS", "25"))
 BATCH = int(os.environ.get("BATCH", "128"))
 DEVICE = os.environ.get("DEVICE", "cuda" if torch.cuda.is_available() else "cpu")
 SEEDS = [int(s) for s in os.environ.get("SEEDS", "0,1").split(",")]
+TRACE = os.environ.get("TRACE")
+TRACE_N = int(os.environ.get("TRACE_N", "32"))
+TRACE_SEED = int(os.environ.get("TRACE_SEED", "2026"))
 
 Xtr, Xte, ytr, yte = teacher_student(device=DEVICE)
+
+
+def _g9(t):
+    return [float(f"{v:.9g}") for v in t.tolist()]
+
+
+def _trace_open(seed, mode, lr, clamp, buf_bits, binact):
+    idx = np.random.default_rng(TRACE_SEED).choice(D_H * D_H, TRACE_N, replace=False)
+    head = {
+        "type": "header",
+        "seed": seed,
+        "mode": mode,
+        "width": D_H,
+        "batch": BATCH,
+        "epochs": EPOCHS,
+        "device": DEVICE,
+        "lr": lr,
+        "clamp": clamp,
+        "buf_bits": buf_bits,
+        "binact": binact,
+        "layer": 0,
+        "trace_seed": TRACE_SEED,
+        "idx": [int(i) for i in idx],
+    }
+    return torch.from_numpy(idx).to(DEVICE), [head]
+
+
+def _trace_close(rows):
+    with open(f"{TRACE}.seed{rows[0]['seed']}.jsonl", "x", encoding="utf-8") as f:
+        for r in rows:
+            f.write(json.dumps(r) + "\n")
 
 
 def setup(seed):
@@ -166,6 +200,12 @@ def run(seed, mode, lr=1.0, clamp=1.5, buf_bits=8, binact=False, qgrad="fp", **k
     alpha, delta = kwargs.get("alpha", 0.5), kwargs.get("delta", 0.5)
     mom_bits, beta = kwargs.get("mom_bits", 4), kwargs.get("beta", 0.9)
     flips_first = flips_last = 0
+    tracing = TRACE is not None and mode == "edB"
+    tidx, trows = torch.zeros(0, dtype=torch.long, device=DEVICE), []
+    if tracing:
+        tidx, trows = _trace_open(seed, mode, lr, clamp, buf_bits, binact)
+        trows[0]["w0"] = _g9(wb[0].flatten()[tidx])
+    step = 0
     for ep in range(EPOCHS):
         ep_flips = 0
         for xb, yb in batches(gen):
@@ -237,13 +277,26 @@ def run(seed, mode, lr=1.0, clamp=1.5, buf_bits=8, binact=False, qgrad="fp", **k
                         gen,
                     )
                 else:
+                    tu = -lr * _grad(proxies[k]).flatten()[tidx] / scales[k]
                     wb[k], ebuf[k], nf = ed_step(
                         wb[k], ebuf[k], _grad(proxies[k]), scales[k], lr, clamp, buf_bits, mode, gen
                     )
+                    if tracing and k == 0:
+                        trows.append(
+                            {
+                                "step": step,
+                                "u": _g9(tu),
+                                "e": _g9(ebuf[0].flatten()[tidx]),
+                                "w": _g9(wb[0].flatten()[tidx]),
+                            }
+                        )
                 ep_flips += nf
+            step += 1
         if ep == 0:
             flips_first = ep_flips
         flips_last = ep_flips
+    if tracing:
+        _trace_close(trows)
     mids = [w * s for w, s in zip(wb, scales, strict=False)]
     buf = m_ema if mode == "bop" else (xlat if mode == "intlat" else ebuf)
     if mode == "frozen":
