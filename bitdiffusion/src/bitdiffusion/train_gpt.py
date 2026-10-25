@@ -35,6 +35,14 @@ MIN_DELTA = float(os.environ.get("MIN_DELTA", "0.005"))
 ADAPT = float(os.environ.get("ADAPT", "0"))
 EDSCHED = os.environ.get("EDSCHED", "const")
 DIVERGE = float(os.environ.get("DIVERGE", "0"))
+ADAMSCHED = os.environ.get("ADAMSCHED", "const")
+FREEZE = [s for s in os.environ.get("FREEZE", "").split(",") if s]
+
+
+def adam_lr(step):
+    if ADAMSCHED == "linear":
+        return ADAMLR * (1 - 0.9 * step / STEPS)
+    return ADAMLR
 
 
 def sched_lr(step):
@@ -191,7 +199,10 @@ def main():
     if os.environ.get("LOADCK"):
         load_ck(model, os.environ["LOADCK"])
     model.train()
-    opt = torch.optim.AdamW(model.parameters(), lr=ADAMLR, betas=(0.9, 0.95))
+    for name in FREEZE:
+        for p in getattr(model, name).parameters():
+            p.requires_grad_(False)
+    opt = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=ADAMLR, betas=(0.9, 0.95))
     binary, fp = accountant(model)
     base = {
         "mode": mode,
@@ -216,6 +227,10 @@ def main():
         "device": DEVICE,
         "data": os.environ.get("DATA", "shakespeare"),
         "loadck": os.environ.get("LOADCK", ""),
+        "adamlr": ADAMLR,
+        "adamsched": ADAMSCHED,
+        "freeze": ",".join(FREEZE),
+        "uclip": float(os.environ.get("UCLIP", "0")),
     }
     print(
         f"[gpt] mode={mode} embd={cfg.n_embd} L={cfg.n_layer} vocab={vocab} "
@@ -245,6 +260,9 @@ def main():
         opt.zero_grad()
         _, loss = model(x, y)
         loss.backward()
+        if ADAMSCHED != "const":
+            for grp in opt.param_groups:
+                grp["lr"] = adam_lr(step)
         opt.step()
         if mode == "ed":
             flips += ed_update(model, sched_lr(step), CLAMP, BITS, gen, ADAPT)

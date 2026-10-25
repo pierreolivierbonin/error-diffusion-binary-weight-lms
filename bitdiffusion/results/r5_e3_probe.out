@@ -1,0 +1,39 @@
+commit a2694f0 branch exp/r5-e3-fp-remnant
+=== 250-step drive probes: occupancy at 250 / 250 must land in 1.0-1.3e-3 ===
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.6240 | val 6.6587 | flips/step 4824 | buf 0.230 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.6587 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.4315 | val 6.5008 | flips/step 8445 | buf 0.264 | 43s
+FINAL mode=ed embd=512 seed=0 best_val=6.5008 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.6483 | val 6.6657 | flips/step 9311 | buf 0.275 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.6657 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.3790 | val 7.3092 | flips/step 4842 | buf 0.294 | 43s
+FINAL mode=ed embd=512 seed=0 best_val=7.3092 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.3695 | val 7.3848 | flips/step 20266 | buf 0.523 | 42s
+FINAL mode=ed embd=512 seed=0 best_val=7.3848 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.0666 | val 7.0821 | flips/step 15335 | buf 0.426 | 43s
+FINAL mode=ed embd=512 seed=0 best_val=7.0821 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 9.5805 | val 9.5398 | flips/step 1791 | buf 0.198 | 39s
+FINAL mode=ed embd=512 seed=0 best_val=9.5398 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 9.3209 | val 9.2941 | flips/step 4173 | buf 0.241 | 39s
+FINAL mode=ed embd=512 seed=0 best_val=9.2941 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 9.2814 | val 9.2618 | flips/step 6490 | buf 0.256 | 39s
+FINAL mode=ed embd=512 seed=0 best_val=9.2618 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.8942 | val 6.9290 | flips/step 2892 | buf 0.212 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.9290 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.8284 | val 6.8638 | flips/step 5161 | buf 0.241 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.8638 edlr=225.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.2256 | val 7.2243 | flips/step 11387 | buf 0.367 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=7.2243 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== r5_e3 probes done ===
