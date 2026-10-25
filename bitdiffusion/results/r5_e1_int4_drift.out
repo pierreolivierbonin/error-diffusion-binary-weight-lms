@@ -1,0 +1,4 @@
+commit f4b1d77 branch exp/r5-e1-int4-drift
+=== int8 lr60 (S2.3 converged cell) with buffer histograms ===
+[gpt] mode=ed embd=256 L=4 vocab=65 binary=3.15M fp=0.10M seed=0 steps=50000 edlr=60.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step  1000 | train 1.9944 | val 2.0922 | flips/step 3618 | buf 0.373 | 47s

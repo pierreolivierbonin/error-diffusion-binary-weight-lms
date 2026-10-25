@@ -183,11 +183,35 @@ def ed_update(model, lr, clamp, buf_bits, gen, adapt=0.0):
             else:
                 drive_scale = m.scale
             wb, ebuf, nf = ed_step(m.wb, m.ebuf, g, drive_scale, lr, clamp, buf_bits, "edB", gen)
+            if os.environ.get("SNAP") == "1":
+                fc = getattr(m, "fcnt", None)
+                if fc is None:
+                    fc = torch.zeros_like(m.wb)
+                fc += (wb != m.wb).float()
+                m.fcnt = fc
             m.wb.copy_(wb)
             m.ebuf.copy_(ebuf)
             m.proxy = None
             flips += nf
     return flips
+
+
+def buf_snapshot(model, clamp, buf_bits):
+    half = 2 ** (buf_bits - 1)
+    levels = 2 * half + 1
+    qstep = 2 * clamp / (2**buf_bits - 1)
+    hist = torch.zeros(levels, dtype=torch.long)
+    multi = total = 0
+    for m in model.modules():
+        if isinstance(m, BitLinear) and m.mode == "ed":
+            idx = ((m.ebuf / qstep).round().long() + half).clamp_(0, levels - 1)
+            hist += torch.bincount(idx.flatten(), minlength=levels).cpu()
+            fc = getattr(m, "fcnt", None)
+            if fc is not None:
+                total += int(fc.sum())
+                multi += int(fc[fc >= 2].sum())
+                fc.zero_()
+    return hist.tolist(), (multi / total if total else 0.0)
 
 
 def buf_absmean(model):

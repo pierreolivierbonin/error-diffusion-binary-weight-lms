@@ -6,7 +6,7 @@ from pathlib import Path
 
 import torch
 
-from .gpt import GPT, BitLinear, GPTConfig, accountant, buf_absmean, ed_update
+from .gpt import GPT, BitLinear, GPTConfig, accountant, buf_absmean, buf_snapshot, ed_update
 
 ROOT = Path(__file__).resolve().parents[2]
 LOG = Path(os.environ.get("LOG", ROOT / "results" / "gpt.jsonl"))
@@ -35,6 +35,7 @@ MIN_DELTA = float(os.environ.get("MIN_DELTA", "0.005"))
 ADAPT = float(os.environ.get("ADAPT", "0"))
 EDSCHED = os.environ.get("EDSCHED", "const")
 DIVERGE = float(os.environ.get("DIVERGE", "0"))
+SNAP = os.environ.get("SNAP") == "1"
 
 
 def sched_lr(step):
@@ -258,18 +259,19 @@ def main():
                 f"{(time.time() - t0):.0f}s",
                 flush=True,
             )
-            log_rec(
-                base
-                | {
-                    "type": "eval",
-                    "step": step,
-                    "train_loss": round(loss.item(), 4),
-                    "val_loss": round(vl, 4),
-                    "flips_per_step": round(flips / EVAL_EVERY, 1),
-                    "buf_absmean": round(buf_absmean(model), 4),
-                    "elapsed_s": round(time.time() - t0),
-                }
-            )
+            rec = {
+                "type": "eval",
+                "step": step,
+                "train_loss": round(loss.item(), 4),
+                "val_loss": round(vl, 4),
+                "flips_per_step": round(flips / EVAL_EVERY, 1),
+                "buf_absmean": round(buf_absmean(model), 4),
+                "elapsed_s": round(time.time() - t0),
+            }
+            if SNAP:
+                hist, reflip = buf_snapshot(model, CLAMP, BITS)
+                rec |= {"buf_hist": hist, "reflip_frac": round(reflip, 4)}
+            log_rec(base | rec)
             flips = 0
             if DIVERGE and step >= 2000 and vl > best + DIVERGE:
                 print(f"DIVERGED step {step} (val {vl:.4f} > best {best:.4f} + {DIVERGE})", flush=True)
