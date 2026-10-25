@@ -1,0 +1,12 @@
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=15.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 1.6702 | val 1.7539 | flips/step 171 | buf 0.237 | 19s
+FINAL mode=ed embd=256 seed=0 best_val=1.7539 edlr=15.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=30.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 1.6136 | val 1.7205 | flips/step 772 | buf 0.319 | 21s
+FINAL mode=ed embd=256 seed=0 best_val=1.7205 edlr=30.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 1.5952 | val 1.7121 | flips/step 1969 | buf 0.378 | 21s
+FINAL mode=ed embd=256 seed=0 best_val=1.7121 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=60.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 1.9024 | val 1.9434 | flips/step 4823 | buf 0.438 | 21s
+FINAL mode=ed embd=256 seed=0 best_val=1.9434 edlr=60.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3

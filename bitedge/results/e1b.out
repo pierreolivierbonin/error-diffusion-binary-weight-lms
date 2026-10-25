@@ -1,0 +1,20 @@
+  int8adam step 500 val 2.5108
+  int8adam step 1000 val 2.4839
+  int8adam step 1500 val 2.4519
+  int8adam step 2000 val 2.3056
+e1 int8adam  | best val 2.3056 | train-state 4.762 MB (rng excl: 25.2) | 105s
+  binemb step 500 val 3.4721
+  binemb step 1000 val 3.5962
+  binemb step 1500 val 3.6532
+  binemb step 2000 val 3.7122
+e1 binemb    | best val 3.4721 | train-state 4.119 MB (rng excl: 26.2) | 107s
+  binemb step 500 val 3.5801
+  binemb step 1000 val 3.6668
+  binemb step 1500 val 3.5791
+  binemb step 2000 val 3.6598
+e1 binemb    | best val 3.5791 | train-state 4.119 MB (rng excl: 26.2) | 107s
+  binemb step 500 val 3.6097
+  binemb step 1000 val 3.6148
+  binemb step 1500 val 3.5708
+  binemb step 2000 val 3.6087
+e1 binemb    | best val 3.5708 | train-state 4.119 MB (rng excl: 26.2) | 107s

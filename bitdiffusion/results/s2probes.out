@@ -1,0 +1,22 @@
+[gpt] mode=ed embd=128 L=2 vocab=256 binary=0.39M fp=0.10M seed=0 steps=250 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.8663 | val 2.8312 | flips/step 1492 | buf 0.449 | 3s
+FINAL mode=ed embd=128 seed=0 best_val=2.8312 edlr=150.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=128 L=2 vocab=256 binary=0.39M fp=0.10M seed=0 steps=250 edlr=200.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.9571 | val 2.9384 | flips/step 1686 | buf 0.471 | 3s
+FINAL mode=ed embd=128 seed=0 best_val=2.9384 edlr=200.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=128 L=2 vocab=256 binary=0.39M fp=0.10M seed=0 steps=250 edlr=250.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 3.1294 | val 3.0683 | flips/step 2304 | buf 0.532 | 3s
+FINAL mode=ed embd=128 seed=0 best_val=3.0683 edlr=250.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=120.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.7135 | val 2.7119 | flips/step 3106 | buf 0.318 | 11s
+FINAL mode=ed embd=256 seed=0 best_val=2.7119 edlr=120.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.7566 | val 2.7345 | flips/step 4110 | buf 0.346 | 11s
+FINAL mode=ed embd=256 seed=0 best_val=2.7345 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=256 binary=3.15M fp=0.20M seed=0 steps=250 edlr=240.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.8777 | val 2.8496 | flips/step 4545 | buf 0.375 | 11s
+FINAL mode=ed embd=256 seed=0 best_val=2.8496 edlr=240.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=250 edlr=200.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 2.8510 | val 2.8211 | flips/step 12712 | buf 0.332 | 42s
+FINAL mode=ed embd=512 seed=0 best_val=2.8211 edlr=200.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=250 edlr=300.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda

@@ -1,0 +1,1 @@
+[gpt] mode=ed embd=128 L=2 vocab=50257 binary=0.39M fp=12.90M seed=0 steps=250 edlr=15.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda

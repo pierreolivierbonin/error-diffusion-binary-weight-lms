@@ -1,0 +1,5 @@
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edE b8 binact=True lr=10.0 C=1.0 w=192 acc 44.50% ± 2.15 | flips_ep0=1.2, flips_epN=2.02e+03, buf=0, gradvar=1.8e-07, dead=0 | state 33b/wt (wb 1 + leaky resid-in-mom FP32) | 5s 41s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edE b8 binact=True lr=30.0 C=1.0 w=192 acc 29.28% ± 18.54 | flips_ep0=5.35e+03, flips_epN=5.98e+03, buf=0, gradvar=3.15e-08, dead=0.0552 | state 33b/wt (wb 1 + leaky resid-in-mom FP32) | 5s 42s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda

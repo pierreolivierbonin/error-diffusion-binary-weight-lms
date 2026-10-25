@@ -1,0 +1,15 @@
+  fp32adam step 500 val 2.5155
+  fp32adam step 1000 val 2.4880
+  fp32adam step 1500 val 2.4526
+  fp32adam step 2000 val 2.3250
+e1 fp32adam  | best val 2.3250 | train-state 5.954 MB (rng excl: 25.2) | 103s
+  int8adam step 500 val nan
+  int8adam step 1000 val nan
+  int8adam step 1500 val nan
+  int8adam step 2000 val nan
+e1 int8adam  | best val inf | train-state 4.755 MB (rng excl: 25.2) | 104s
+  binemb step 500 val 3.6200
+  binemb step 1000 val 3.5524
+  binemb step 1500 val 3.6011
+  binemb step 2000 val 3.6382
+e1 binemb    | best val 3.5524 | train-state 3.985 MB (rng excl: 26.2) | 107s

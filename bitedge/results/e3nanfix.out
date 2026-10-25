@@ -1,0 +1,6 @@
+e3 edge: zero-shot 2.1700 | setup rss 752 MB
+  edge step 500 val 1.5884 | rss 976 MB
+  edge step 1000 val 1.5396 | rss 997 MB
+  edge step 1500 val 1.5267 | rss 997 MB
+  edge step 2000 val 1.5129 | rss 980 MB
+e3 edge: completed | peak rss 1005.2 MB | 1.5129

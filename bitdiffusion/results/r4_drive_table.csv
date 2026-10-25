@@ -1,0 +1,130 @@
+task,size,bits,binact,warm,flip_lr,step,buf_abs_mean,drive,selected,final_metric,source_file
+shakespeare-char 2k,4L/128,8,0,no,3.0,250,0.097,3.88e-04,no,2.2620 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,3.0,250,0.103,4.12e-04,no,2.2123 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,10.0,250,0.173,6.92e-04,no,2.1147 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,10.0,250,0.17,6.80e-04,no,2.1367 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,30.0,250,0.24,9.60e-04,no,2.0830 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,30.0,250,0.235,9.40e-04,no,2.0786 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,60.0,250,0.289,1.16e-03,no,2.0677 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,100.0,250,0.324,1.30e-03,yes,2.0358 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,3.0,250,0.061,2.44e-04,no,2.1045 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,3.0,250,0.06,2.40e-04,no,2.0750 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,10.0,250,0.127,5.08e-04,no,2.0436 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,10.0,250,0.126,5.04e-04,no,2.0135 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,30.0,250,0.194,7.76e-04,no,1.9262 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,30.0,250,0.194,7.76e-04,no,1.9129 (s1),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,60.0,250,0.239,9.56e-04,yes,1.8430 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/256,8,0,no,100.0,250,0.277,1.11e-03,no,1.8474 (s0),p3gpt.jsonl
+shakespeare-char 2k,4L/128,8,0,no,100.0,250,0.3231,1.29e-03,yes,2.0817 (s1),audit_fix.jsonl
+shakespeare-char 2k,4L/256,8,0,no,60.0,250,0.2409,9.64e-04,yes,1.8789 (s1),audit_fix.jsonl
+shakespeare-char 2k,4L/512,8,0,no,80.0,250,0.213,8.52e-04,yes,1.7715 (s0),audit_fix.jsonl
+shakespeare-char 2k,4L/512,8,0,no,80.0,250,0.2159,8.64e-04,yes,1.7421 (s1),audit_fix.jsonl
+shakespeare-char 2k (registered d=512),4L/512,8,1,no,40.0,250,0.1748,6.99e-04,no,1.8440,s2rule.jsonl
+shakespeare-char 2k (registered d=512),4L/512,8,1,no,80.0,250,0.2233,8.93e-04,yes (predicted 80-90),1.7818,s2rule.jsonl
+shakespeare-char 2k (registered d=512),4L/512,8,1,no,160.0,250,0.2854,1.14e-03,tie,1.7828,s2rule.jsonl
+shakespeare-char 2k,4L/256,8,1,no,30.0,250,0.204,8.16e-04,no,1.9553,p3tight.jsonl
+shakespeare-char 2k,4L/256,8,1,no,60.0,250,0.253,1.01e-03,yes,1.8925,p3tight.jsonl
+shakespeare-char 2k,4L/256,8,1,no,100.0,250,0.294,1.18e-03,no,1.9706,p3tight.jsonl
+shakespeare-char 2k,4L/256,4,1,no,60.0,250,0.337,1.35e-03,reused int8 lr,1.9835,p3tight.jsonl
+shakespeare-char 2k,4L/128,4,0,no,100.0,250,0.432,1.73e-03,yes (best of sweep),2.085+-0.033 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/128,4,0,no,150.0,250,0.4249,1.70e-03,no,2.249+-0.055 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/256,4,0,no,60.0,250,0.3393,1.36e-03,yes (best of sweep),1.869+-0.046 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/256,4,0,no,90.0,250,0.3469,1.39e-03,no,1.898+-0.001 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/512,4,0,no,80.0,250,0.3174,1.27e-03,yes (best of sweep),1.791+-0.049 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/512,4,0,no,120.0,250,0.3266,1.31e-03,no,1.835+-0.002 (n=2) (s0 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/128,4,0,no,100.0,250,0.4021,1.61e-03,yes (best of sweep),2.085+-0.033 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/128,4,0,no,150.0,250,0.4631,1.85e-03,no,2.249+-0.055 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/256,4,0,no,60.0,250,0.3266,1.31e-03,yes (best of sweep),1.869+-0.046 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/256,4,0,no,90.0,250,0.3537,1.41e-03,no,1.898+-0.001 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/512,4,0,no,80.0,250,0.3252,1.30e-03,yes (best of sweep),1.791+-0.049 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k,4L/512,4,0,no,120.0,250,0.3242,1.30e-03,no,1.835+-0.002 (n=2) (s1 probe row),s2int4gpt.jsonl
+shakespeare-char 2k 1-bit grads (sr1_clip),4L/256,8,1,no,10.0,250,0.1552,6.21e-04,no,2.5396,p3qfix.jsonl
+shakespeare-char 2k 1-bit grads (sr1_clip),4L/256,8,1,no,30.0,250,0.2355,9.42e-04,no,2.4603,p3qfix.jsonl
+shakespeare-char 2k 1-bit grads (sr1_clip),4L/256,8,1,no,60.0,250,0.2832,1.13e-03,yes,2.4565,p3qfix.jsonl
+shakespeare-char 2k 1-bit grads (sr1_clip),4L/256,8,1,no,30.0,250,0.2631,1.05e-03,no,2.0440,p3scope.jsonl
+shakespeare-char 2k 1-bit grads (sr1_clip),4L/256,8,1,no,60.0,250,0.3255,1.30e-03,yes,2.0315,p3scope.jsonl
+shakespeare-char 2k adaptive drive,4L/256,8,1,no,0.01 (ADAPT=0.01),250,0.1646,6.58e-04,no,1.9292,p3adapt.jsonl
+shakespeare-char 2k adaptive drive,4L/256,8,1,no,0.03 (ADAPT=0.01),250,0.2491,9.96e-04,yes,1.9800,p3adapt.jsonl
+shakespeare-char 2k adaptive drive,4L/256,8,1,no,0.1 (ADAPT=0.01),250,0.3694,1.48e-03,no,2.5371,p3adapt.jsonl
+enwik8 15k,2L/128,8,1,no,150.0,250,0.449,1.80e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,200.0,250,0.4709,1.88e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,250.0,250,0.5322,2.13e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,4L/256,8,1,no,120.0,250,0.3179,1.27e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,4L/256,8,1,no,180.0,250,0.3461,1.38e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,4L/256,8,1,no,240.0,250,0.3749,1.50e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,200.0,250,0.3322,1.33e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,300.0,250,0.4375,1.75e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,400.0,250,0.5037,2.01e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,60.0,250,0.3791,1.52e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,90.0,250,0.4156,1.66e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,120.0,250,0.5054,2.02e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,120.0,250,0.2414,9.66e-04,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,160.0,250,0.2422,9.69e-04,no,,s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,25.0,250,0.3033,1.21e-03,yes,1.894+-0.002 (n=3),s2probe_enwik8.jsonl
+enwik8 15k,2L/128,8,1,no,40.0,250,0.3442,1.38e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,4L/256,8,1,no,60.0,250,0.2643,1.06e-03,yes,1.521+-0.012 (n=2),s2probe_enwik8.jsonl
+enwik8 15k,4L/256,8,1,no,90.0,250,0.2948,1.18e-03,no,,s2probe_enwik8.jsonl
+enwik8 15k,6L/512,8,1,no,180.0,250,0.2897,1.16e-03,yes,1.288+-0.002 (n=3) clean; stalled seeds 1.4327/1.4857 excluded,s2probe_enwik8.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,15.0,250,0.2186,8.74e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,25.0,250,0.2481,9.92e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,40.0,250,0.2825,1.13e-03,yes,5.1177,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,40.0,250,0.214,8.56e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,60.0,250,0.2393,9.57e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,90.0,250,0.2642,1.06e-03,yes,4.7822,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,120.0,250,0.2237,8.95e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,180.0,250,0.2466,9.86e-04,yes (2nd band-edge pick),5.0382,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,270.0,250,0.2705,1.08e-03,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,25.0,250,0.2436,9.74e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,40.0,250,0.28,1.12e-03,yes,5.1177,s2tokprobe.jsonl
+wikitext103 BPE 15k,2L/128,8,1,no,60.0,250,0.3176,1.27e-03,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,60.0,250,0.2341,9.36e-04,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,90.0,250,0.2619,1.05e-03,yes,4.7822,s2tokprobe.jsonl
+wikitext103 BPE 15k,4L/256,8,1,no,130.0,250,0.2908,1.16e-03,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,180.0,250,0.2435,9.74e-04,yes (2nd band-edge pick),5.0382,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,270.0,250,0.4976,1.99e-03,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,200.0,250,0.2518,1.01e-03,no,,s2tokprobe.jsonl
+wikitext103 BPE 15k,6L/512,8,1,no,225.0,250,0.2639,1.06e-03,yes,4.9195,s2tokprobe.jsonl
+enwik8 15k,6L/512,4,1,no,45.0,250,0.2816,1.13e-03,yes,1.510+-0.003 (n=3),s2int4probe.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,4,1,yes,15.0,250,0.2366,9.46e-04,no,,s2int4probe.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,4,1,yes,30.0,250,0.3192,1.28e-03,yes,1.610+-0.005 (n=3),s2int4probe.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,4,1,yes,45.0,250,0.3783,1.51e-03,no,,s2int4probe.jsonl
+enwik8 15k,6L/512,4,1,no,90.0,250,0.3412,1.36e-03,no,,s2int4probe.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,4,1,yes,60.0,250,0.4382,1.75e-03,no,1.793+-0.191 (n=3),s2int4probe.jsonl
+enwik8 15k,6L/512,4,1,no,135.0,250,0.3295,1.32e-03,no,,s2int4probe.jsonl
+enwik8 15k,6L/512,4,1,no,180.0,250,0.3267,1.31e-03,no,,s2int4probe.jsonl
+enwik8 15k,4L/256,4,1,no,15.0,250,0.222,8.88e-04,no,,s2int4probe.jsonl
+enwik8 15k,4L/256,4,1,no,30.0,250,0.2872,1.15e-03,yes,1.707+-0.003 (n=3),s2int4probe.jsonl
+enwik8 15k,4L/256,4,1,no,45.0,250,0.3255,1.30e-03,no,,s2int4probe.jsonl
+enwik8 15k,4L/256,4,1,no,60.0,250,0.354,1.42e-03,no,,s2int4probe.jsonl
+enwik8 15k,2L/128,4,1,no,6.0,250,0.2266,9.06e-04,no,,s2int4probe.jsonl
+enwik8 15k,2L/128,4,1,no,12.0,250,0.2849,1.14e-03,yes,2.002+-0.003 (n=3),s2int4probe.jsonl
+enwik8 15k,2L/128,4,1,no,25.0,250,0.3587,1.43e-03,no,,s2int4probe.jsonl
+shakespeare-char 50k,4L/256,4,1,no,20.0,250,0.2318,9.27e-04,no,,s2int4probe.jsonl
+shakespeare-char 50k,4L/256,4,1,no,30.0,250,0.2725,1.09e-03,bracket,1.6749,s2int4probe.jsonl
+shakespeare-char 50k,4L/256,4,1,no,45.0,250,0.3089,1.24e-03,yes (drive-matched to int8 pick),1.6807,s2int4probe.jsonl
+shakespeare-char 50k,4L/256,4,1,no,60.0,250,0.3359,1.34e-03,no,,s2int4probe.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,8,1,yes,30.0,250,0.2453,9.81e-04,no (just under band),1.5376,s2adapt.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,8,1,yes,60.0,250,0.3143,1.26e-03,yes,1.520+-0.003 (n=3),s2adapt.jsonl
+deploy-then-adapt shakespeare_bytes 5k,4L/256,8,1,yes,120.0,250,0.6016,2.41e-03,no (over-driven; model destroyed in 250 steps),,s2adapt.jsonl
+shakespeare_bytes scratch 5k,4L/256,8,1,no,60.0,250,0.2548,1.02e-03,no,,s2adapt.jsonl
+shakespeare_bytes scratch 5k,4L/256,8,1,no,120.0,250,0.3081,1.23e-03,yes,1.9514,s2adapt.jsonl
+shakespeare_bytes scratch 5k,4L/256,8,1,no,240.0,250,0.3944,1.58e-03,no,,s2adapt.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,50.0,250,0.1628,6.51e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,70.0,250,0.1827,7.31e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,90.0,250,0.1982,7.93e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,130.0,250,0.2178,8.71e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,50.0,250,0.1669,6.68e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,70.0,250,0.1851,7.40e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,90.0,250,0.2031,8.12e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,130.0,250,0.2287,9.15e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,180.0,250,0.2366,9.46e-04,launched (thrashed at 4-5k; no completion),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,250.0,250,0.2497,9.99e-04,launched (thrashed at 4-5k; no completion),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,350.0,250,0.314,1.26e-03,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,180.0,250,0.2477,9.91e-04,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,250.0,250,0.256,1.02e-03,yes,1.4572 (s0; 1 of 6 seeds completed); lr 220 (not probed) 1.4695/1.4715,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,1,no,350.0,250,0.3703,1.48e-03,no,,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,0.003 (ADAPT=0.01),250,0.0588,2.35e-04,no (lr 0.05 launched; diverged at 3k),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,0.01 (ADAPT=0.01),250,0.1358,5.43e-04,no (lr 0.05 launched; diverged at 3k),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,0,no,0.03 (ADAPT=0.01),250,0.2036,8.14e-04,no (lr 0.05 launched; diverged at 3k),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,hardtanh,no,180.0,250,0.2293,9.17e-04,bracket for lr 200 (interpolated; 0 of 3 seeds completed),,parityprobe.jsonl
+shakespeare-char nanoGPT-parity 50k (dropout 0.2),6L/384,8,hardtanh,no,250.0,250,0.3241,1.30e-03,bracket for lr 200 (interpolated; 0 of 3 seeds completed),,parityprobe.jsonl

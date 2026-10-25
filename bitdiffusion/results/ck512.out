@@ -1,0 +1,18 @@
+[gpt] mode=bitnet embd=512 L=6 vocab=256 binary=18.87M fp=19.28M seed=0 steps=15000 edlr=1.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step  1000 | train 1.7490 | val 1.7964 | flips/step 0 | buf 0.000 | 110s
+step  2000 | train 1.5495 | val 1.5268 | flips/step 0 | buf 0.000 | 220s
+step  3000 | train 1.4819 | val 1.4306 | flips/step 0 | buf 0.000 | 329s
+step  4000 | train 1.3450 | val 1.3774 | flips/step 0 | buf 0.000 | 445s
+step  5000 | train 1.3341 | val 1.3418 | flips/step 0 | buf 0.000 | 562s
+step  6000 | train 1.3673 | val 1.3158 | flips/step 0 | buf 0.000 | 674s
+step  7000 | train 1.2531 | val 1.3000 | flips/step 0 | buf 0.000 | 785s
+step  8000 | train 1.2847 | val 1.2878 | flips/step 0 | buf 0.000 | 896s
+step  9000 | train 1.2232 | val 1.2751 | flips/step 0 | buf 0.000 | 1007s
+step 10000 | train 1.2435 | val 1.2701 | flips/step 0 | buf 0.000 | 1118s
+step 11000 | train 1.1672 | val 1.2567 | flips/step 0 | buf 0.000 | 1229s
+step 12000 | train 1.2400 | val 1.2545 | flips/step 0 | buf 0.000 | 1338s
+step 13000 | train 1.2340 | val 1.2476 | flips/step 0 | buf 0.000 | 1447s
+step 14000 | train 1.2296 | val 1.2428 | flips/step 0 | buf 0.000 | 1555s
+step 15000 | train 1.2457 | val 1.2376 | flips/step 0 | buf 0.000 | 1664s
+FINAL mode=bitnet embd=512 seed=0 best_val=1.2376 edlr=1.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+saved deploy checkpoint -> results/ck_enwik8_bitnet_512.pt

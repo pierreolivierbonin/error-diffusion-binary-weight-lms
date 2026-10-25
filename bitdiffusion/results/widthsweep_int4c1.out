@@ -1,0 +1,18 @@
+=== width 64 ===
+[bitdiffusion] w=64 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=64 acc 40.30% ± 1.33 | flips_ep0=67, flips_epN=2.87e+03, buf=0.535, gradvar=5.76e-07, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 44s
+=== width 96 ===
+[bitdiffusion] w=96 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=96 acc 46.82% ± 1.56 | flips_ep0=30, flips_epN=4.92e+03, buf=0.526, gradvar=3.05e-07, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 45s
+=== width 128 ===
+[bitdiffusion] w=128 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=128 acc 50.35% ± 1.20 | flips_ep0=38, flips_epN=7.6e+03, buf=0.521, gradvar=1.93e-07, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 45s
+=== width 192 ===
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=192 acc 56.35% ± 1.26 | flips_ep0=35.4, flips_epN=1.28e+04, buf=0.514, gradvar=8.49e-08, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 50s
+=== width 256 ===
+[bitdiffusion] w=256 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=256 acc 59.76% ± 0.84 | flips_ep0=41.2, flips_epN=1.9e+04, buf=0.51, gradvar=4.92e-08, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 53s
+=== width 384 ===
+[bitdiffusion] w=384 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+edB b4 binact=True lr=1.0 C=1.0 w=384 acc 62.52% ± 0.46 | flips_ep0=26.8, flips_epN=3.43e+04, buf=0.506, gradvar=2.39e-08, dead=0 | state 5b/wt (wb 1 + buf 4) | 5s 64s

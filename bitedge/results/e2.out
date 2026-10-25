@@ -1,0 +1,5 @@
+e2 latent      packact=0 | state   40.16 MB ( 96.00 b/wt binary-layer) | peak  1297.2 MB | 34.20 st/s | loss 4.687 -> 2.473
+e2 ed_naive    packact=0 | state   27.58 MB ( 64.00 b/wt binary-layer) | peak  1303.2 MB | 28.57 st/s | loss 4.873 -> 2.545
+e2 ed_compact  packact=0 | state   33.87 MB ( 16.00 b/wt binary-layer) | peak  1311.8 MB | 26.43 st/s | loss 4.785 -> 2.551
+e2 ed_packed   packact=0 | state   31.12 MB (  9.00 b/wt binary-layer) | peak  1309.1 MB | 23.95 st/s | loss 4.918 -> 2.553
+e2 ed_compact  packact=1 | state   33.87 MB ( 16.00 b/wt binary-layer) | peak  1200.7 MB | 22.76 st/s | loss 4.988 -> 2.555

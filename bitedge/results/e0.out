@@ -1,0 +1,4 @@
+e0 float b8 lr=1.0 acc 56.37 ± 1.45 | 39s
+e0 int   b8 lr=1.0 acc 56.96 ± 1.29 | 36s
+e0 float b4 lr=1.0 acc 56.62 ± 0.71 | 39s
+e0 int   b4 lr=1.0 acc 53.29 ± 1.40 | 35s

@@ -1,0 +1,4 @@
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda
+step   250 | train 6.4731 | val 6.5423 | flips/step 5931 | buf 0.244 | 679s
+FINAL mode=ed embd=512 seed=0 best_val=6.5423 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=270.0 bits=8 C=1.0 binact=True qgrad=fp dev=cuda

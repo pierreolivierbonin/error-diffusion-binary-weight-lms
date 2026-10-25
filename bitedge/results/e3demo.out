@@ -1,0 +1,12 @@
+e3 latent: zero-shot 2.1700 | setup rss 841 MB
+  latent step 500 val 1.5748 | rss 1058 MB
+  latent step 1000 val 1.5400 | rss 1077 MB
+  latent step 1500 val 1.5149 | rss 1077 MB
+  latent step 2000 val 1.4964 | rss 1071 MB
+e3 latent: completed | peak rss 1166.2 MB | 1.4964
+e3 edge: zero-shot 2.1700 | setup rss 751 MB
+  edge step 500 val 1.6030 | rss 1022 MB
+  edge step 1000 val 1.5604 | rss 952 MB
+  edge step 1500 val nan | rss 1026 MB
+  edge step 2000 val nan | rss 974 MB
+e3 edge: completed | peak rss 1063.0 MB | 1.5604

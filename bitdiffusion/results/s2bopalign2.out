@@ -1,0 +1,20 @@
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+bop g=0.01 tau=3e-05 emabits=8 align=False binact=True acc 55.90% ± 1.47 | flips_ep0=1.16e+04, flips_epN=8.61e+03, buf=9.99e-06, gradvar=5.03e-08, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 49s
+bop g=0.01 tau=0.0001 emabits=8 align=False binact=True acc 55.25% ± 1.32 | flips_ep0=637, flips_epN=676, buf=1.88e-05, gradvar=1.25e-07, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 44s
+bop g=0.01 tau=0.0003 emabits=8 align=False binact=True acc 46.80% ± 0.58 | flips_ep0=0.6, flips_epN=44.6, buf=4.42e-05, gradvar=1.87e-07, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 44s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+bop g=0.01 tau=3e-05 emabits=8 align=True binact=True acc 56.12% ± 0.60 | flips_ep0=1.16e+04, flips_epN=8.45e+03, buf=9.39e-06, gradvar=4.87e-08, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 43s
+bop g=0.01 tau=0.0001 emabits=8 align=True binact=True acc 55.38% ± 0.78 | flips_ep0=618, flips_epN=631, buf=1.88e-05, gradvar=1.24e-07, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 42s
+bop g=0.01 tau=0.0003 emabits=8 align=True binact=True acc 46.77% ± 0.74 | flips_ep0=0.6, flips_epN=44.2, buf=4.38e-05, gradvar=1.86e-07, dead=0 | state 9b/wt (wb 1 + EMA 8) | 5s 42s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+bop g=0.01 tau=3e-05 emabits=3 align=False binact=True acc 45.31% ± 1.03 | flips_ep0=3.26e+04, flips_epN=110, buf=0.000106, gradvar=1.19e-07, dead=0.00573 | state 4b/wt (wb 1 + EMA 3) | 5s 44s
+bop g=0.01 tau=0.0001 emabits=3 align=False binact=True acc 44.47% ± 0.87 | flips_ep0=1.3e+04, flips_epN=62, buf=0.000252, gradvar=1.41e-07, dead=0 | state 4b/wt (wb 1 + EMA 3) | 5s 44s
+bop g=0.01 tau=0.0003 emabits=3 align=False binact=True acc 41.61% ± 0.71 | flips_ep0=5.57e+03, flips_epN=52, buf=0.000137, gradvar=1.57e-07, dead=0 | state 4b/wt (wb 1 + EMA 3) | 5s 43s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+bop g=0.01 tau=3e-05 emabits=3 align=True binact=True acc 50.59% ± 1.98 | flips_ep0=3.87e+04, flips_epN=4.77e+04, buf=1.26e-05, gradvar=5.86e-08, dead=0.00156 | state 4b/wt (wb 1 + EMA 3) | 5s 43s
+bop g=0.01 tau=0.0001 emabits=3 align=True binact=True acc 53.74% ± 1.42 | flips_ep0=4.53e+03, flips_epN=1.32e+04, buf=3.63e-05, gradvar=9.24e-08, dead=0 | state 4b/wt (wb 1 + EMA 3) | 5s 42s
+bop g=0.01 tau=0.0003 emabits=3 align=True binact=True acc 53.80% ± 0.82 | flips_ep0=58, flips_epN=1.42e+03, buf=7.99e-05, gradvar=1.21e-07, dead=0 | state 4b/wt (wb 1 + EMA 3) | 5s 42s
+[bitdiffusion] w=192 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda
+bop g=0.01 tau=3e-05 emabits=2 align=False binact=True acc 38.61% ± 2.14 | flips_ep0=9.94e+03, flips_epN=125, buf=5.14e-05, gradvar=1.28e-07, dead=0.00365 | state 3b/wt (wb 1 + EMA 2) | 5s 44s
+bop g=0.01 tau=0.0001 emabits=2 align=False binact=True acc 38.59% ± 1.09 | flips_ep0=4.35e+03, flips_epN=71.2, buf=0.000164, gradvar=1.41e-07, dead=0 | state 3b/wt (wb 1 + EMA 2) | 5s 44s
+bop g=0.01 tau=0.0003 emabits=2 align=False binact=True acc 37.80% ± 1.56 | flips_ep0=1.9e+03, flips_epN=60.6, buf=4.67e-05, gradvar=1.49e-07, dead=0 | state 3b/wt (wb 1 + EMA 2) | 5s 44s

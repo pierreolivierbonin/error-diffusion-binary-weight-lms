@@ -1,0 +1,4 @@
+e3 latent: zero-shot 2.1700 | setup rss 841 MB
+e3 latent: CAP_EXCEEDED | peak rss 1065.1 MB | -
+e3 edge: zero-shot 2.1700 | setup rss 750 MB
+e3 edge: CAP_EXCEEDED | peak rss 963.6 MB | -

@@ -1,0 +1,11 @@
+e3 edge: zero-shot 2.1700 | rss 751 MB
+PROBE lr=60.0 drive=9.51e-04
+e3 edge: completed | peak rss 1023.5 MB | 2.17
+e3 edge: zero-shot 2.1700 | rss 751 MB
+PROBE lr=120.0 drive=4.00e-03
+e3 edge: completed | peak rss 1034.5 MB | 2.17
+e3 edge: zero-shot 2.1700 | rss 750 MB
+PROBE lr=240.0 drive=4.00e-03
+e3 edge: completed | peak rss 1028.1 MB | 2.17
+e3 latent: zero-shot 2.1700 | rss 842 MB
+e3 latent: completed | peak rss 1115.2 MB | 2.17

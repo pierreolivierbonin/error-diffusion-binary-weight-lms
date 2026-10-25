@@ -1,0 +1,1 @@
+{"section": null, "raw": "[bitdiffusion] w=96 batch=128 ep=25 seeds=[0, 1, 2, 3, 4] dev=cuda", "type": "meta", "fields": {"w": 96, "batch": 128, "ep": 25, "seeds": "[0", "dev": "cuda"}}

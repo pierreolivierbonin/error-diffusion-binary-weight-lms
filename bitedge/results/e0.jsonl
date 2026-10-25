@@ -1,0 +1,22 @@
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 64, "seeds": [0], "acc_mean": 29.62, "acc_std": 0.0, "flips_total_mean": 282, "wall_s": 9}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 64, "seeds": [0], "acc_mean": 29.43, "acc_std": 0.0, "flips_total_mean": 399, "wall_s": 0}
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.37, "acc_std": 1.45, "flips_total_mean": 626293, "wall_s": 39}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.96, "acc_std": 1.29, "flips_total_mean": 1268356, "wall_s": 36}
+{"exp": "e0", "mode": "float", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.62, "acc_std": 0.71, "flips_total_mean": 283879, "wall_s": 39}
+{"exp": "e0", "mode": "int", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 53.29, "acc_std": 1.4, "flips_total_mean": 9601127, "wall_s": 35}
+{"exp": "e0", "mode": "float", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.62, "acc_std": 0.71, "flips_total_mean": 283879, "wall_s": 43}
+{"exp": "e0", "mode": "int", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 53.41, "acc_std": 1.73, "flips_total_mean": 8431361, "wall_s": 40}
+{"exp": "e0", "mode": "float", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.62, "acc_std": 0.71, "flips_total_mean": 283879, "wall_s": 44}
+{"exp": "e0", "mode": "int", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 53.65, "acc_std": 1.48, "flips_total_mean": 9554730, "wall_s": 41}
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.37, "acc_std": 1.45, "flips_total_mean": 626293, "wall_s": 44}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.64, "acc_std": 1.62, "flips_total_mean": 1271152, "wall_s": 40}
+{"exp": "e0", "mode": "float", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.62, "acc_std": 0.71, "flips_total_mean": 283879, "wall_s": 43}
+{"exp": "e0", "mode": "int", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 53.62, "acc_std": 1.54, "flips_total_mean": 5798457, "wall_s": 45}
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.37, "acc_std": 1.45, "flips_total_mean": 626293, "wall_s": 44}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 57.07, "acc_std": 0.68, "flips_total_mean": 1065582, "wall_s": 45}
+{"exp": "e0", "mode": "float", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 54.75, "acc_std": 1.39, "flips_total_mean": 5474941, "wall_s": 44}
+{"exp": "e0", "mode": "int", "bits": 4, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 53.62, "acc_std": 1.54, "flips_total_mean": 5798457, "wall_s": 46}
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.67, "acc_std": 0.92, "flips_total_mean": 631602, "wall_s": 83}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 51.87, "acc_std": 0.98, "flips_total_mean": 742589, "wall_s": 100}
+{"exp": "e0", "mode": "float", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 56.67, "acc_std": 0.92, "flips_total_mean": 631602, "wall_s": 83}
+{"exp": "e0", "mode": "int", "bits": 8, "lr": 1.0, "width": 192, "seeds": [0, 1, 2, 3, 4], "acc_mean": 51.28, "acc_std": 0.89, "flips_total_mean": 580591, "wall_s": 100}

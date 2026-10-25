@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "Error Diffusion Replaces Latent Weights: code, run scripts, and logs"
+authors:
+  - family-names: Bonin
+    given-names: Pierre-Olivier
+    affiliation: Independent Researcher
+license: MIT
+repository-code: "https://github.com/pierreolivierbonin/error-diffusion-binary-weight-lms"
+preferred-citation:
+  type: conference-paper
+  title: "Error Diffusion Replaces Latent Weights: Training Binary-Weight Language Models on a Few Bits of Dithered State"
+  authors:
+    - family-names: Bonin
+      given-names: Pierre-Olivier
+      affiliation: Independent Researcher
+  collection-title: "SLM-Agents: 1st Workshop on SLMs for Agentic Systems, NeurIPS 2026"
+  year: 2026
+  url: "https://openreview.net/forum?id=ZtrJISn7LJ"
