@@ -7,7 +7,7 @@ import torch.nn.functional as F
 from torch import nn
 
 from .layers import STEsign, get_rht, qgrad_fn
-from .optim import ed_step
+from .optim import bop_step, ed_step
 
 
 @dataclass
@@ -190,8 +190,22 @@ def ed_update(model, lr, clamp, buf_bits, gen, adapt=0.0):
     return flips
 
 
+def bop_update(model, gamma, tau, bits, align, gen):
+    flips = 0
+    for m in model.modules():
+        if isinstance(m, BitLinear) and m.mode == "bop" and m.proxy is not None:
+            g = m.proxy.grad
+            assert g is not None
+            wb, ema, nf = bop_step(m.wb, m.ebuf, g, gamma, tau, bits, gen, align)
+            m.wb.copy_(wb)
+            m.ebuf.copy_(ema)
+            m.proxy = None
+            flips += nf
+    return flips
+
+
 def buf_absmean(model):
-    mods = [m for m in model.modules() if isinstance(m, BitLinear) and m.mode == "ed"]
+    mods = [m for m in model.modules() if isinstance(m, BitLinear) and m.mode in ("ed", "bop")]
     bufs = [m.ebuf.abs().mean().item() for m in mods]
     return float(np.mean(bufs)) if bufs else 0.0
 
@@ -200,7 +214,7 @@ def accountant(model):
     binary = fp = 0
     for m in model.modules():
         if isinstance(m, BitLinear) and m.mode != "fp32":
-            if m.mode == "ed":
+            if m.mode in ("ed", "bop"):
                 binary += m.wb.numel()
             else:
                 binary += m.weight.numel()

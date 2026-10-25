@@ -6,7 +6,7 @@ from pathlib import Path
 
 import torch
 
-from .gpt import GPT, BitLinear, GPTConfig, accountant, buf_absmean, ed_update
+from .gpt import GPT, BitLinear, GPTConfig, accountant, bop_update, buf_absmean, ed_update
 
 ROOT = Path(__file__).resolve().parents[2]
 LOG = Path(os.environ.get("LOG", ROOT / "results" / "gpt.jsonl"))
@@ -35,6 +35,10 @@ MIN_DELTA = float(os.environ.get("MIN_DELTA", "0.005"))
 ADAPT = float(os.environ.get("ADAPT", "0"))
 EDSCHED = os.environ.get("EDSCHED", "const")
 DIVERGE = float(os.environ.get("DIVERGE", "0"))
+GAMMA = float(os.environ.get("GAMMA", "1e-2"))
+TAU = float(os.environ.get("TAU", "1e-4"))
+BOPBITS = int(os.environ["BOPBITS"]) if "BOPBITS" in os.environ else None
+BOPALIGN = os.environ.get("BOPALIGN", "0") == "1"
 
 
 def sched_lr(step):
@@ -216,6 +220,10 @@ def main():
         "device": DEVICE,
         "data": os.environ.get("DATA", "shakespeare"),
         "loadck": os.environ.get("LOADCK", ""),
+        "gamma": GAMMA,
+        "tau": TAU,
+        "bopbits": BOPBITS,
+        "bopalign": BOPALIGN,
     }
     print(
         f"[gpt] mode={mode} embd={cfg.n_embd} L={cfg.n_layer} vocab={vocab} "
@@ -248,6 +256,8 @@ def main():
         opt.step()
         if mode == "ed":
             flips += ed_update(model, sched_lr(step), CLAMP, BITS, gen, ADAPT)
+        elif mode == "bop":
+            flips += bop_update(model, GAMMA, TAU, BOPBITS, BOPALIGN, gen)
         if step % EVAL_EVERY == 0 or step == STEPS:
             vl = val_loss(model, vdata, cfg.block_size)
             stale = 0 if vl < best - MIN_DELTA else stale + 1
@@ -258,18 +268,18 @@ def main():
                 f"{(time.time() - t0):.0f}s",
                 flush=True,
             )
-            log_rec(
-                base
-                | {
-                    "type": "eval",
-                    "step": step,
-                    "train_loss": round(loss.item(), 4),
-                    "val_loss": round(vl, 4),
-                    "flips_per_step": round(flips / EVAL_EVERY, 1),
-                    "buf_absmean": round(buf_absmean(model), 4),
-                    "elapsed_s": round(time.time() - t0),
-                }
-            )
+            rec = {
+                "type": "eval",
+                "step": step,
+                "train_loss": round(loss.item(), 4),
+                "val_loss": round(vl, 4),
+                "flips_per_step": round(flips / EVAL_EVERY, 1),
+                "buf_absmean": round(buf_absmean(model), 4),
+                "elapsed_s": round(time.time() - t0),
+            }
+            if mode == "bop":
+                rec["ema_absmean"] = buf_absmean(model)
+            log_rec(base | rec)
             flips = 0
             if DIVERGE and step >= 2000 and vl > best + DIVERGE:
                 print(f"DIVERGED step {step} (val {vl:.4f} > best {best:.4f} + {DIVERGE})", flush=True)
