@@ -42,6 +42,16 @@ class _ScopedQuant(torch.autograd.Function):
         return grad_x, grad_w, None
 
 
+UCLIP = float(os.environ.get("UCLIP", "0"))
+
+
+def _ebuf_init(W0, gen):
+    a = float(os.environ.get("EDINIT", "0"))
+    if a == 0:
+        return torch.zeros_like(W0)
+    return (torch.rand(W0.shape, generator=gen) * 2 - 1) * a
+
+
 class BitLinear(nn.Module):
     wb: torch.Tensor
     ebuf: torch.Tensor
@@ -64,7 +74,7 @@ class BitLinear(nn.Module):
         else:
             wb0 = torch.sign(W0) + (torch.sign(W0) == 0).float()
             self.register_buffer("wb", wb0.to(device))
-            self.register_buffer("ebuf", torch.zeros_like(W0).to(device))
+            self.register_buffer("ebuf", _ebuf_init(W0, gen).to(device))
             self.register_buffer("scale", W0.abs().mean().to(device))
             self.proxy = None
 
@@ -97,6 +107,7 @@ class Block(nn.Module):
         self.binact = cfg.binact
         self.act = cfg.act
         self.dropout = cfg.dropout
+        self.diag = os.environ.get("DIAG") == "1"
         self.drop = nn.Dropout(cfg.dropout)
         self.ln1 = nn.LayerNorm(cfg.n_embd)
         self.ln2 = nn.LayerNorm(cfg.n_embd)
@@ -119,6 +130,8 @@ class Block(nn.Module):
         z = self.mlp_fc(self.ln2(x))
         if self.binact:
             s = z.abs().mean().detach() + 1e-8
+            if self.diag:
+                self.last_s = float(s)
             h = STEsign.apply(z / s) * s
         elif self.act == "hardtanh":
             s = z.abs().mean().detach() + 1e-8
@@ -182,12 +195,31 @@ def ed_update(model, lr, clamp, buf_bits, gen, adapt=0.0):
                 drive_scale = m.gnorm + 1e-12
             else:
                 drive_scale = m.scale
-            wb, ebuf, nf = ed_step(m.wb, m.ebuf, g, drive_scale, lr, clamp, buf_bits, "edB", gen)
+            wb, ebuf, nf = ed_step(m.wb, m.ebuf, g, drive_scale, lr, clamp, buf_bits, "edB", gen, UCLIP)
             m.wb.copy_(wb)
             m.ebuf.copy_(ebuf)
             m.proxy = None
             flips += nf
     return flips
+
+
+def diag_stats(model):
+    ln = [p.detach() for n, p in model.named_parameters() if ".ln" in n and n.endswith("weight")]
+    gfp = [p.grad.detach().norm() ** 2 for p in model.parameters() if p.grad is not None]
+    gbin = [
+        m.proxy.grad.detach().norm() ** 2
+        for m in model.modules()
+        if isinstance(m, BitLinear) and m.mode == "ed" and m.proxy is not None and m.proxy.grad is not None
+    ]
+    return {
+        "ln_gain_mean": round(float(torch.stack([w.abs().mean() for w in ln]).mean()), 4),
+        "ln_gain_max": round(float(max(w.abs().max() for w in ln)), 3),
+        "head_norm": round(float(model.head.weight.detach().norm()), 3),
+        "wte_norm": round(float(model.wte.weight.detach().norm()), 3),
+        "grad_fp": round(float(sum(gfp).sqrt()), 5) if gfp else 0.0,
+        "grad_bin": round(float(sum(gbin).sqrt()), 5) if gbin else 0.0,
+        "act_scale": [round(b.last_s, 5) for b in model.blocks if hasattr(b, "last_s")],
+    }
 
 
 def buf_absmean(model):

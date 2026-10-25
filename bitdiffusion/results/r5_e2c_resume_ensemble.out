@@ -1,0 +1,170 @@
+commit 7a58d52 branch exp/r5-e2-stall-init
+=== seed 0 resume rep 1: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7639 | val 1.7935 | flips/step 49464 | buf 0.482 | 19s
+step  2200 | train 1.7477 | val 1.7793 | flips/step 49603 | buf 0.486 | 38s
+step  2300 | train 1.7599 | val 1.7615 | flips/step 50535 | buf 0.490 | 57s
+step  2400 | train 1.6565 | val 1.7545 | flips/step 50491 | buf 0.494 | 75s
+step  2500 | train 1.7364 | val 1.7332 | flips/step 50427 | buf 0.497 | 94s
+step  2600 | train 1.7601 | val 1.7204 | flips/step 51900 | buf 0.501 | 113s
+step  2700 | train 1.7056 | val 1.6999 | flips/step 51158 | buf 0.504 | 132s
+step  2800 | train 1.6803 | val 1.6819 | flips/step 52471 | buf 0.507 | 151s
+step  2900 | train 1.6884 | val 1.6757 | flips/step 51858 | buf 0.510 | 170s
+step  3000 | train 1.5958 | val 1.6779 | flips/step 52225 | buf 0.513 | 188s
+FINAL mode=ed embd=512 seed=0 best_val=1.6757 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 0 resume rep 2: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7683 | val 1.7959 | flips/step 50289 | buf 0.482 | 19s
+step  2200 | train 1.7548 | val 1.7790 | flips/step 48991 | buf 0.486 | 38s
+step  2300 | train 1.7575 | val 1.7594 | flips/step 50208 | buf 0.490 | 56s
+step  2400 | train 1.6705 | val 1.7628 | flips/step 50792 | buf 0.494 | 75s
+step  2500 | train 1.7327 | val 1.7212 | flips/step 50575 | buf 0.497 | 93s
+step  2600 | train 1.7582 | val 1.7270 | flips/step 51097 | buf 0.501 | 112s
+step  2700 | train 1.7198 | val 1.7133 | flips/step 51910 | buf 0.504 | 131s
+step  2800 | train 1.6907 | val 1.6944 | flips/step 51927 | buf 0.507 | 149s
+step  2900 | train 1.6994 | val 1.6818 | flips/step 52538 | buf 0.510 | 168s
+step  3000 | train 1.5910 | val 1.6713 | flips/step 52830 | buf 0.513 | 187s
+FINAL mode=ed embd=512 seed=0 best_val=1.6713 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 0 resume rep 3: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7594 | val 1.7805 | flips/step 49411 | buf 0.482 | 19s
+step  2200 | train 1.7657 | val 1.8019 | flips/step 50099 | buf 0.486 | 38s
+step  2300 | train 1.7800 | val 1.7829 | flips/step 49952 | buf 0.490 | 56s
+step  2400 | train 1.6623 | val 1.7586 | flips/step 50828 | buf 0.494 | 75s
+step  2500 | train 1.7483 | val 1.7368 | flips/step 51217 | buf 0.497 | 94s
+step  2600 | train 1.7492 | val 1.7187 | flips/step 51505 | buf 0.501 | 112s
+step  2700 | train 1.7104 | val 1.7029 | flips/step 52005 | buf 0.504 | 131s
+step  2800 | train 1.6956 | val 1.6880 | flips/step 51825 | buf 0.507 | 149s
+step  2900 | train 1.6842 | val 1.6675 | flips/step 51811 | buf 0.510 | 168s
+step  3000 | train 1.5900 | val 1.6712 | flips/step 52321 | buf 0.513 | 187s
+FINAL mode=ed embd=512 seed=0 best_val=1.6675 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 0 resume rep 4: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7721 | val 1.8003 | flips/step 49374 | buf 0.482 | 19s
+step  2200 | train 1.7507 | val 1.7826 | flips/step 49828 | buf 0.486 | 38s
+step  2300 | train 1.7607 | val 1.7645 | flips/step 50862 | buf 0.490 | 56s
+step  2400 | train 1.6512 | val 1.7402 | flips/step 50003 | buf 0.494 | 75s
+step  2500 | train 1.7361 | val 1.7360 | flips/step 51023 | buf 0.497 | 94s
+step  2600 | train 1.7579 | val 1.7207 | flips/step 51908 | buf 0.501 | 113s
+step  2700 | train 1.7139 | val 1.7081 | flips/step 51320 | buf 0.504 | 131s
+step  2800 | train 1.6951 | val 1.6825 | flips/step 51473 | buf 0.507 | 150s
+step  2900 | train 1.6965 | val 1.6709 | flips/step 52257 | buf 0.510 | 169s
+step  3000 | train 1.5915 | val 1.6577 | flips/step 52294 | buf 0.513 | 187s
+FINAL mode=ed embd=512 seed=0 best_val=1.6577 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 0 resume rep 5: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7670 | val 1.8022 | flips/step 49188 | buf 0.482 | 19s
+step  2200 | train 1.7521 | val 1.7791 | flips/step 49924 | buf 0.486 | 38s
+step  2300 | train 1.7697 | val 1.7691 | flips/step 50501 | buf 0.490 | 56s
+step  2400 | train 1.6537 | val 1.7414 | flips/step 51242 | buf 0.494 | 75s
+step  2500 | train 1.7321 | val 1.7189 | flips/step 50392 | buf 0.497 | 94s
+step  2600 | train 1.7562 | val 1.7150 | flips/step 51908 | buf 0.501 | 112s
+step  2700 | train 1.7174 | val 1.7101 | flips/step 51045 | buf 0.504 | 131s
+step  2800 | train 1.7111 | val 1.6983 | flips/step 52309 | buf 0.507 | 150s
+step  2900 | train 1.6885 | val 1.6751 | flips/step 52256 | buf 0.510 | 169s
+step  3000 | train 1.5874 | val 1.6708 | flips/step 51956 | buf 0.513 | 187s
+FINAL mode=ed embd=512 seed=0 best_val=1.6708 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 0 resume rep 6: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=0 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed0_step2000.pt step 2000 best 1.8419
+step  2100 | train 1.7783 | val 1.8041 | flips/step 50134 | buf 0.482 | 19s
+step  2200 | train 1.7635 | val 1.7899 | flips/step 49006 | buf 0.486 | 37s
+step  2300 | train 1.7673 | val 1.7781 | flips/step 50370 | buf 0.490 | 56s
+step  2400 | train 1.6528 | val 1.7400 | flips/step 50662 | buf 0.494 | 75s
+step  2500 | train 1.7348 | val 1.7256 | flips/step 50641 | buf 0.497 | 93s
+step  2600 | train 1.7513 | val 1.7163 | flips/step 51945 | buf 0.501 | 112s
+step  2700 | train 1.7136 | val 1.7093 | flips/step 51660 | buf 0.504 | 131s
+step  2800 | train 1.6892 | val 1.6792 | flips/step 51820 | buf 0.507 | 150s
+step  2900 | train 1.6960 | val 1.6760 | flips/step 52169 | buf 0.510 | 168s
+step  3000 | train 1.5918 | val 1.6711 | flips/step 52051 | buf 0.513 | 187s
+FINAL mode=ed embd=512 seed=0 best_val=1.6711 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 1: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8144 | val 1.8232 | flips/step 49852 | buf 0.484 | 20s
+step  2200 | train 1.7317 | val 1.7629 | flips/step 50004 | buf 0.488 | 39s
+step  2300 | train 1.7749 | val 1.7476 | flips/step 50768 | buf 0.492 | 58s
+step  2400 | train 1.7519 | val 1.7439 | flips/step 51206 | buf 0.495 | 77s
+step  2500 | train 1.7473 | val 1.7249 | flips/step 51475 | buf 0.499 | 95s
+step  2600 | train 1.7029 | val 1.7049 | flips/step 52027 | buf 0.502 | 114s
+step  2700 | train 1.6607 | val 1.6953 | flips/step 52412 | buf 0.505 | 132s
+step  2800 | train 1.7002 | val 1.6878 | flips/step 51488 | buf 0.508 | 151s
+step  2900 | train 1.6819 | val 1.6836 | flips/step 52335 | buf 0.511 | 170s
+step  3000 | train 1.5556 | val 1.6637 | flips/step 52671 | buf 0.514 | 189s
+FINAL mode=ed embd=512 seed=4 best_val=1.6637 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 2: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8750 | val 1.8464 | flips/step 50132 | buf 0.484 | 19s
+step  2200 | train 1.7375 | val 1.7742 | flips/step 49597 | buf 0.488 | 38s
+step  2300 | train 1.7685 | val 1.7437 | flips/step 50403 | buf 0.492 | 56s
+step  2400 | train 1.7634 | val 1.7588 | flips/step 51580 | buf 0.495 | 75s
+step  2500 | train 1.7357 | val 1.7270 | flips/step 51202 | buf 0.499 | 94s
+step  2600 | train 1.7074 | val 1.7130 | flips/step 51566 | buf 0.502 | 112s
+step  2700 | train 1.6729 | val 1.6991 | flips/step 52333 | buf 0.505 | 131s
+step  2800 | train 1.7014 | val 1.6823 | flips/step 52174 | buf 0.508 | 149s
+step  2900 | train 1.6853 | val 1.6838 | flips/step 52518 | buf 0.511 | 168s
+step  3000 | train 1.5547 | val 1.6567 | flips/step 52628 | buf 0.514 | 187s
+FINAL mode=ed embd=512 seed=4 best_val=1.6567 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 3: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8084 | val 1.8027 | flips/step 49758 | buf 0.484 | 19s
+step  2200 | train 1.7366 | val 1.7795 | flips/step 50138 | buf 0.488 | 38s
+step  2300 | train 1.7622 | val 1.7437 | flips/step 50063 | buf 0.492 | 56s
+step  2400 | train 1.7534 | val 1.7470 | flips/step 51296 | buf 0.495 | 75s
+step  2500 | train 1.7360 | val 1.7381 | flips/step 51251 | buf 0.498 | 93s
+step  2600 | train 1.6994 | val 1.6999 | flips/step 51842 | buf 0.502 | 112s
+step  2700 | train 1.6703 | val 1.7098 | flips/step 52415 | buf 0.505 | 131s
+step  2800 | train 1.7043 | val 1.6915 | flips/step 51677 | buf 0.508 | 149s
+step  2900 | train 1.6918 | val 1.6927 | flips/step 52600 | buf 0.511 | 168s
+step  3000 | train 1.5463 | val 1.6503 | flips/step 52691 | buf 0.514 | 187s
+FINAL mode=ed embd=512 seed=4 best_val=1.6503 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 4: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8107 | val 1.8007 | flips/step 50067 | buf 0.484 | 19s
+step  2200 | train 1.7545 | val 1.7834 | flips/step 50040 | buf 0.488 | 38s
+step  2300 | train 1.7666 | val 1.7489 | flips/step 49827 | buf 0.492 | 56s
+step  2400 | train 1.7571 | val 1.7473 | flips/step 52341 | buf 0.495 | 75s
+step  2500 | train 1.7326 | val 1.7256 | flips/step 50646 | buf 0.498 | 94s
+step  2600 | train 1.7054 | val 1.7085 | flips/step 51683 | buf 0.502 | 112s
+step  2700 | train 1.6750 | val 1.7072 | flips/step 51530 | buf 0.505 | 131s
+step  2800 | train 1.6974 | val 1.6771 | flips/step 52211 | buf 0.508 | 150s
+step  2900 | train 1.6785 | val 1.6756 | flips/step 52258 | buf 0.511 | 168s
+step  3000 | train 1.5574 | val 1.6540 | flips/step 53183 | buf 0.514 | 187s
+FINAL mode=ed embd=512 seed=4 best_val=1.6540 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 5: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8000 | val 1.7913 | flips/step 49948 | buf 0.484 | 19s
+step  2200 | train 1.7244 | val 1.7741 | flips/step 50092 | buf 0.488 | 38s
+step  2300 | train 1.7645 | val 1.7453 | flips/step 50150 | buf 0.492 | 56s
+step  2400 | train 1.7498 | val 1.7413 | flips/step 51425 | buf 0.495 | 75s
+step  2500 | train 1.7349 | val 1.7260 | flips/step 51146 | buf 0.498 | 93s
+step  2600 | train 1.6930 | val 1.6986 | flips/step 51871 | buf 0.502 | 112s
+step  2700 | train 1.6764 | val 1.7106 | flips/step 52341 | buf 0.505 | 131s
+step  2800 | train 1.6895 | val 1.6831 | flips/step 51884 | buf 0.508 | 149s
+step  2900 | train 1.6847 | val 1.6820 | flips/step 52645 | buf 0.511 | 168s
+step  3000 | train 1.5553 | val 1.6614 | flips/step 52890 | buf 0.514 | 187s
+FINAL mode=ed embd=512 seed=4 best_val=1.6614 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== seed 4 resume rep 6: identical checkpoint and RNG state, 2000 -> 3000 ===
+[gpt] mode=ed embd=512 L=6 vocab=256 binary=18.87M fp=0.41M seed=4 steps=15000 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+resumed results/r5_e2b_ck_seed4_step2000.pt step 2000 best 1.7947
+step  2100 | train 1.8222 | val 1.8077 | flips/step 49818 | buf 0.484 | 19s
+step  2200 | train 1.7412 | val 1.7892 | flips/step 50311 | buf 0.488 | 38s
+step  2300 | train 1.7725 | val 1.7473 | flips/step 50499 | buf 0.492 | 56s
+step  2400 | train 1.7466 | val 1.7377 | flips/step 51410 | buf 0.495 | 75s
+step  2500 | train 1.7352 | val 1.7204 | flips/step 51145 | buf 0.498 | 94s
+step  2600 | train 1.6973 | val 1.7094 | flips/step 52454 | buf 0.502 | 112s
+step  2700 | train 1.6755 | val 1.7020 | flips/step 52623 | buf 0.505 | 131s
+step  2800 | train 1.7092 | val 1.7095 | flips/step 51170 | buf 0.508 | 150s
+step  2900 | train 1.7012 | val 1.6923 | flips/step 52427 | buf 0.511 | 168s
+step  3000 | train 1.5664 | val 1.6662 | flips/step 53064 | buf 0.514 | 187s
+FINAL mode=ed embd=512 seed=4 best_val=1.6662 edlr=180.0 bits=8 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== r5_e2c done ===

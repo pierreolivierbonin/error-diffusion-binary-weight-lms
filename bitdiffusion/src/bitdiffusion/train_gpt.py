@@ -6,7 +6,7 @@ from pathlib import Path
 
 import torch
 
-from .gpt import GPT, BitLinear, GPTConfig, accountant, buf_absmean, ed_update
+from .gpt import GPT, BitLinear, GPTConfig, accountant, buf_absmean, diag_stats, ed_update
 
 ROOT = Path(__file__).resolve().parents[2]
 LOG = Path(os.environ.get("LOG", ROOT / "results" / "gpt.jsonl"))
@@ -35,6 +35,8 @@ MIN_DELTA = float(os.environ.get("MIN_DELTA", "0.005"))
 ADAPT = float(os.environ.get("ADAPT", "0"))
 EDSCHED = os.environ.get("EDSCHED", "const")
 DIVERGE = float(os.environ.get("DIVERGE", "0"))
+STOPAT = int(os.environ.get("STOPAT", "0"))
+DIAG = os.environ.get("DIAG") == "1"
 
 
 def sched_lr(step):
@@ -216,6 +218,8 @@ def main():
         "device": DEVICE,
         "data": os.environ.get("DATA", "shakespeare"),
         "loadck": os.environ.get("LOADCK", ""),
+        "edinit": float(os.environ.get("EDINIT", "0")),
+        "uclip": float(os.environ.get("UCLIP", "0")),
     }
     print(
         f"[gpt] mode={mode} embd={cfg.n_embd} L={cfg.n_layer} vocab={vocab} "
@@ -246,6 +250,7 @@ def main():
         _, loss = model(x, y)
         loss.backward()
         opt.step()
+        diag = diag_stats(model) if DIAG and (step % EVAL_EVERY == 0 or step == STEPS) else None
         if mode == "ed":
             flips += ed_update(model, sched_lr(step), CLAMP, BITS, gen, ADAPT)
         if step % EVAL_EVERY == 0 or step == STEPS:
@@ -258,18 +263,18 @@ def main():
                 f"{(time.time() - t0):.0f}s",
                 flush=True,
             )
-            log_rec(
-                base
-                | {
-                    "type": "eval",
-                    "step": step,
-                    "train_loss": round(loss.item(), 4),
-                    "val_loss": round(vl, 4),
-                    "flips_per_step": round(flips / EVAL_EVERY, 1),
-                    "buf_absmean": round(buf_absmean(model), 4),
-                    "elapsed_s": round(time.time() - t0),
-                }
-            )
+            rec = {
+                "type": "eval",
+                "step": step,
+                "train_loss": round(loss.item(), 4),
+                "val_loss": round(vl, 4),
+                "flips_per_step": round(flips / EVAL_EVERY, 1),
+                "buf_absmean": round(buf_absmean(model), 4),
+                "elapsed_s": round(time.time() - t0),
+            }
+            if diag is not None:
+                rec |= diag
+            log_rec(base | rec)
             flips = 0
             if DIVERGE and step >= 2000 and vl > best + DIVERGE:
                 print(f"DIVERGED step {step} (val {vl:.4f} > best {best:.4f} + {DIVERGE})", flush=True)
@@ -287,6 +292,9 @@ def main():
             if PATIENCE and stale >= PATIENCE:
                 print(f"EARLY-STOP step {step} (no val gain > {MIN_DELTA} for {PATIENCE} evals)", flush=True)
                 log_rec(base | {"type": "early_stop", "step": step})
+                break
+            if STOPAT and step >= STOPAT:
+                log_rec(base | {"type": "stopat", "step": step})
                 break
     qb, qc = os.environ.get("QBLOCK", "32"), os.environ.get("QCLIP", "3")
     print(
