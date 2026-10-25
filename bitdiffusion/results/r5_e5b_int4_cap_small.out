@@ -1,0 +1,37 @@
+commit 36f8885 branch exp/r5-e5-int4-wikitext
+=== int4 wikitext-103, cap 0.25, the two smaller sizes (uncapped launches diverged repeatedly) ===
+[gpt] mode=ed embd=128 L=2 vocab=50257 binary=0.39M fp=12.88M seed=0 steps=15000 edlr=20.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step  1000 | train 6.1852 | val 6.1971 | flips/step 262 | buf 0.466 | 39s
+step  2000 | train 5.8773 | val 5.9246 | flips/step 542 | buf 0.508 | 77s
+step  3000 | train 5.7543 | val 5.7584 | flips/step 721 | buf 0.518 | 115s
+step  4000 | train 5.7479 | val 5.7418 | flips/step 739 | buf 0.522 | 154s
+step  5000 | train 5.4875 | val 5.5678 | flips/step 658 | buf 0.525 | 192s
+step  6000 | train 5.3970 | val 5.5679 | flips/step 798 | buf 0.520 | 230s
+step  7000 | train 5.5825 | val 5.4518 | flips/step 581 | buf 0.524 | 269s
+step  8000 | train 5.4371 | val 5.4249 | flips/step 711 | buf 0.524 | 307s
+step  9000 | train 5.2732 | val 5.3863 | flips/step 586 | buf 0.526 | 346s
+step 10000 | train 5.2970 | val 5.3753 | flips/step 567 | buf 0.526 | 384s
+step 11000 | train 5.3029 | val 5.3361 | flips/step 507 | buf 0.527 | 422s
+step 12000 | train 5.3106 | val 5.3245 | flips/step 444 | buf 0.526 | 461s
+step 13000 | train 5.3908 | val 5.3117 | flips/step 385 | buf 0.526 | 499s
+step 14000 | train 5.2095 | val 5.2959 | flips/step 304 | buf 0.527 | 537s
+step 15000 | train 5.2789 | val 5.2753 | flips/step 210 | buf 0.527 | 576s
+FINAL mode=ed embd=128 seed=0 best_val=5.2753 edlr=20.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=50257 binary=3.15M fp=25.77M seed=0 steps=15000 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step  1000 | train 6.1770 | val 6.1075 | flips/step 2253 | buf 0.469 | 69s
+step  2000 | train 5.6642 | val 5.6698 | flips/step 3401 | buf 0.498 | 137s
+step  3000 | train 5.4617 | val 5.5073 | flips/step 4115 | buf 0.505 | 205s
+step  4000 | train 5.6578 | val 5.5601 | flips/step 4323 | buf 0.508 | 274s
+step  5000 | train 5.3010 | val 5.2933 | flips/step 3255 | buf 0.508 | 342s
+step  6000 | train 5.5958 | val 5.5794 | flips/step 4766 | buf 0.509 | 410s
+step  7000 | train 5.3023 | val 5.1845 | flips/step 2788 | buf 0.509 | 479s
+step  8000 | train 5.1399 | val 5.1422 | flips/step 3147 | buf 0.511 | 547s
+step  9000 | train 5.0271 | val 5.1285 | flips/step 3865 | buf 0.509 | 615s
+step 10000 | train 5.0386 | val 5.0812 | flips/step 2547 | buf 0.511 | 683s
+step 11000 | train 5.0107 | val 5.0520 | flips/step 2552 | buf 0.511 | 752s
+step 12000 | train 5.0781 | val 5.0378 | flips/step 2287 | buf 0.511 | 820s
+step 13000 | train 4.9534 | val 5.0152 | flips/step 1979 | buf 0.512 | 888s
+step 14000 | train 4.8612 | val 4.9951 | flips/step 1582 | buf 0.512 | 957s
+step 15000 | train 5.0130 | val 4.9737 | flips/step 1101 | buf 0.512 | 1026s
+FINAL mode=ed embd=256 seed=0 best_val=4.9737 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== r5_e5b done ===

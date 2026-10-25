@@ -42,6 +42,9 @@ class _ScopedQuant(torch.autograd.Function):
         return grad_x, grad_w, None
 
 
+UCLIP = float(os.environ.get("UCLIP", "0"))
+
+
 class BitLinear(nn.Module):
     wb: torch.Tensor
     ebuf: torch.Tensor
@@ -182,7 +185,7 @@ def ed_update(model, lr, clamp, buf_bits, gen, adapt=0.0):
                 drive_scale = m.gnorm + 1e-12
             else:
                 drive_scale = m.scale
-            wb, ebuf, nf = ed_step(m.wb, m.ebuf, g, drive_scale, lr, clamp, buf_bits, "edB", gen)
+            wb, ebuf, nf = ed_step(m.wb, m.ebuf, g, drive_scale, lr, clamp, buf_bits, "edB", gen, UCLIP)
             m.wb.copy_(wb)
             m.ebuf.copy_(ebuf)
             m.proxy = None

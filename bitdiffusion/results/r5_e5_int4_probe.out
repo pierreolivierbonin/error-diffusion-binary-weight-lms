@@ -1,0 +1,30 @@
+commit a4167f0 branch exp/r5-e5-int4-wikitext
+=== int4 drive probes on wikitext-103; int8 picks were 40 / 90 / 225, enwik8 int4 picks were 2-4x below int8 ===
+[gpt] mode=ed embd=128 L=2 vocab=50257 binary=0.39M fp=12.88M seed=0 steps=250 edlr=10.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.3099 | val 7.2112 | flips/step 24 | buf 0.216 | 10s
+FINAL mode=ed embd=128 seed=0 best_val=7.2112 edlr=10.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=128 L=2 vocab=50257 binary=0.39M fp=12.88M seed=0 steps=250 edlr=20.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.2799 | val 7.1728 | flips/step 57 | buf 0.270 | 10s
+FINAL mode=ed embd=128 seed=0 best_val=7.1728 edlr=20.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=128 L=2 vocab=50257 binary=0.39M fp=12.88M seed=0 steps=250 edlr=40.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.2246 | val 7.1154 | flips/step 133 | buf 0.329 | 10s
+FINAL mode=ed embd=128 seed=0 best_val=7.1154 edlr=40.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=50257 binary=3.15M fp=25.77M seed=0 steps=250 edlr=25.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.9480 | val 6.8619 | flips/step 222 | buf 0.241 | 17s
+FINAL mode=ed embd=256 seed=0 best_val=6.8619 edlr=25.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=50257 binary=3.15M fp=25.77M seed=0 steps=250 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.9106 | val 6.8259 | flips/step 468 | buf 0.282 | 17s
+FINAL mode=ed embd=256 seed=0 best_val=6.8259 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=256 L=4 vocab=50257 binary=3.15M fp=25.77M seed=0 steps=250 edlr=90.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 7.1875 | val 7.5382 | flips/step 1292 | buf 0.352 | 17s
+FINAL mode=ed embd=256 seed=0 best_val=7.5382 edlr=90.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.5761 | val 6.6364 | flips/step 1584 | buf 0.257 | 43s
+FINAL mode=ed embd=512 seed=0 best_val=6.6364 edlr=45.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=90.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.5364 | val 6.5674 | flips/step 3510 | buf 0.301 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.5674 edlr=90.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+[gpt] mode=ed embd=512 L=6 vocab=50257 binary=18.87M fp=51.54M seed=0 steps=250 edlr=150.0 bits=4 C=1.0 binact=True qgrad=fp drop=0.0 dev=cuda
+step   250 | train 6.9634 | val 6.9793 | flips/step 8292 | buf 0.358 | 44s
+FINAL mode=ed embd=512 seed=0 best_val=6.9793 edlr=150.0 bits=4 C=1.0 binact=True qgrad=fp qblock=32 qclip=3
+=== r5_e5 probes done ===

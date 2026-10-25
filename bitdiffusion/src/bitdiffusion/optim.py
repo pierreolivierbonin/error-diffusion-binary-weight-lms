@@ -10,8 +10,10 @@ def _srq(e, clamp, buf_bits, gen):
     return ((fl + (crand(q.shape, gen, q.device) < (q - fl)).float()) * qstep).clamp_(-clamp, clamp)
 
 
-def ed_step(wb, ebuf, grad, scale, lr, clamp, buf_bits, mode, gen):
+def ed_step(wb, ebuf, grad, scale, lr, clamp, buf_bits, mode, gen, uclip=0.0):
     u = -lr * grad / scale
+    if uclip:
+        u = u.clamp(-uclip, uclip)
     if mode == "sr":
         opposes = u.sign() != wb.sign()
         p = (u.abs() / 2).clamp(max=1.0)

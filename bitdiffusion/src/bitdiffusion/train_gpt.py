@@ -216,6 +216,7 @@ def main():
         "device": DEVICE,
         "data": os.environ.get("DATA", "shakespeare"),
         "loadck": os.environ.get("LOADCK", ""),
+        "uclip": float(os.environ.get("UCLIP", "0")),
     }
     print(
         f"[gpt] mode={mode} embd={cfg.n_embd} L={cfg.n_layer} vocab={vocab} "
